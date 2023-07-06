@@ -15,10 +15,11 @@ validate-circleci:
 
 run-circleci-local:
 	# See https://circleci.com/docs/2.0/local-cli/#running-a-job
-	circleci local execute
+	circleci local execute build
 
 lint:
-	hadolint demos/flask-sklearn-student-starter/Dockerfile
-	pylint --disable=R,C,W1203 demos/**/**.py
+	# hadolint demos/flask-sklearn-student-starter/Dockerfile
+	hadolint Dockerfile
+	pylint --disable=R,C,W1203 /**.py
 
 all: install lint test

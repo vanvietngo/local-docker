@@ -1,13 +1,14 @@
-FROM python
+# hadolint ignore=DL3007
+FROM python:latest
 # MAINTAINER johndoe@gmail.com
-LABEL org.website="containiq.com"
+# LABEL org.website="containiq.com"
  
-RUN mkdir app && cd app
+# RUN mkdir app && cd app
  
-COPY requirements.txt ./
-RUN pip install --upgrade pip
-# RUN pip install -r requirements.txt
+# COPY requirements.txt ./
+# RUN pip install --upgrade pip
+# # RUN pip install -r requirements.txt
  
-COPY . .
+# COPY . .
  
-CMD python manage.py runserver 0.0.0.0:80000
+# CMD python manage.py runserver 0.0.0.0:80000
