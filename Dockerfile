@@ -1,14 +1,21 @@
-# hadolint ignore=DL3007
-FROM python:latest
-# MAINTAINER johndoe@gmail.com
-# LABEL org.website="containiq.com"
- 
-# RUN mkdir app && cd app
- 
-# COPY requirements.txt ./
-# RUN pip install --upgrade pip
-# # RUN pip install -r requirements.txt
- 
-# COPY . .
- 
-# CMD python manage.py runserver 0.0.0.0:80000
+FROM python:3.7.3-stretch
+
+## Complete Step 1:
+# Create a Working Directory
+WORKDIR /app
+
+## Complete Step 2:
+# Copy source code to working directory
+COPY .  /app
+
+## Complete Step 3:
+# Install packages from requirements.txt
+# hadolint ignore=DL3013
+RUN pip install --upgrade pip &&\
+    pip install --trusted-host pypi.python.org -r requirements.txt
+
+## Complete Step 4:
+# Expose port 80
+
+## Complete Step 5:
+# Run app.py at container launch
